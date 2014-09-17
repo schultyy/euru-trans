@@ -1,11 +1,21 @@
-<img alt="KITTEN" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" />
-<h2>Speaker name</h2>
-<h2>Talk name</h2>
+<br><br>
 
-<div>
-  VIDEO HERE
+<div class="row">
+  <div class="small-2 columns">
+  	<img alt="KITTEN" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" />
+  </div>
+  <div class="small-10 columns">
+  	<h2>Speaker name</h2>
+	<h2>Talk name</h2>
+  </div>
 </div>
 
-<div>
-  Lorem ipsum dolor sit amet
+<div class="row">
+  <div class="small-2 columns">
+  	<br>
+  </div>
+  <div class="small-10 columns">
+  	<p>VIDEO HERE</p>
+	<p>Lorem ipsum dolor sit amet</p>
+  </div>
 </div>
