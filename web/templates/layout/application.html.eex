@@ -7,11 +7,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>eurucamp transcriptions</title>
+    <title>eurucamp 2014 transcriptions</title>
     <link rel="stylesheet" href="/css/foundation.css">
+    <link rel="stylesheet" href="/css/custom.css">
   </head>
 
   <body>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul.no-bullet class="title area">
+        <li>
+        <h3><span><a href="/"><img src="http://livingstyleguide.com/eurucamp/images/eurucamp-2014.svg" width="200"></span></a><span>Transcriptions</span></h3>
+        </li>
+      </ul>
+    </nav>
+
     <div class="container">
       <%= @inner %>
     </div> <!-- /container -->

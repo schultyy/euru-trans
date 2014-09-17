@@ -1,0 +1,8 @@
+h1, h2, h3, h4, h5, h6 {
+  color: #ff0080; }
+a {
+  color: #ff0080; }
+  a:hover, a:focus {
+    color: #7F0040; }
+  a:visited {
+  	color: #ff0080;	}
