@@ -5,7 +5,7 @@
 
   <p>
     <%= Enum.map @talks, fn talk -> %>
-      <h2><a href="/talk"><%= talk.speaker%></a></h2>
+      <h2><a href="<%= link_to talk%>"><%= talk.speaker%></a></h2>
       <h2><%= talk.title %></h2>
       <p><%= talk.text %></p>
     <% end %>
