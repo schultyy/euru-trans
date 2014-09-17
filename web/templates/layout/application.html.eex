@@ -23,6 +23,22 @@
 
     <div class="container">
       <%= @inner %>
-    </div> <!-- /container -->
+    </div>
+
+
+    <br>
+    <br>
+    
+    <div class="footer">
+      <dic class="row">
+        <div class="small-2 columns">
+        </div>
+        <div class="small-10 columns">
+          Eurucamp Transcripts 2014
+        </div>
+      </div>
+    </div>
+
+    <!-- /container -->
   </body>
 </html>
