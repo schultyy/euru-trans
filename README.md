@@ -2,6 +2,11 @@
 
 Website for eurucamp 2014 transcriptions
 
+# Dependencies
+
+- Elixir 1.0
+- [Phoenix](https://github.com/phoenixframework/phoenix)
+
 # Instructions
 To start your new Phoenix application you have to:
 
