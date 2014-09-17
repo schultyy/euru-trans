@@ -1,5 +1,8 @@
-# EuruTrans
+# euru-trans
 
+Website for eurucamp 2014 transcriptions
+
+# Instructions
 To start your new Phoenix application you have to:
 
 1. Install dependencies with `mix deps.get`
