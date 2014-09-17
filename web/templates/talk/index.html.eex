@@ -1,11 +1,11 @@
 <img alt="KITTEN" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" />
-<h2>Speaker name</h2>
-<h2>Talk name</h2>
+<h2><%= @talk.title%></h2>
+<h2><%= @talk.speaker%></h2>
 
 <div>
   VIDEO HERE
 </div>
 
 <div>
-  Lorem ipsum dolor sit amet
+  <%=@talk.text%>
 </div>
