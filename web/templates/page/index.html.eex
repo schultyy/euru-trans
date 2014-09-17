@@ -2,11 +2,12 @@
   Day 1
 </h1>
 <div>
-  <h2><a href="/talk">Generic talk name here</a></h2>
-  <h2>Generic speaker name here</h2>
+
   <p>
-    <%= Enum.map @talks, fn elem -> %>
-      <p><%= elem.text %></p>
+    <%= Enum.map @talks, fn talk -> %>
+      <h2><a href="/talk"><%= talk.speaker%></a></h2>
+      <h2><%= talk.title %></h2>
+      <p><%= talk.text %></p>
     <% end %>
   </p>
 </div>

@@ -1,3 +1,3 @@
 defmodule EuruTrans.Talk do
-  defstruct text: ""
+  defstruct speaker: "", title: "", text: ""
 end
