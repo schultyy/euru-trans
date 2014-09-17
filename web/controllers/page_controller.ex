@@ -20,6 +20,7 @@ defmodule EuruTrans.PageController do
 
   defp teaser(name) do
     {:ok, content} = File.read(Path.join('transcripts', name))
-    String.slice(content, 0, 100) <> "..."
+    text = String.slice(content, 0, 100) <> "..."
+    %EuruTrans.Talk{text: text}
   end
 end

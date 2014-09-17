@@ -6,7 +6,7 @@
   <h2>Generic speaker name here</h2>
   <p>
     <%= Enum.map @talks, fn elem -> %>
-      <p><%= elem %></p>
+      <p><%= elem.text %></p>
     <% end %>
   </p>
 </div>
