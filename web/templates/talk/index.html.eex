@@ -18,7 +18,7 @@
   <div class="small-10 columns">
     <p>VIDEO HERE</p>
     <p>
-    <%=@talk.text%>
+    <%= safe @talk.text %>
     </p>
   </div>
 </div>

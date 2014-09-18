@@ -13,7 +13,7 @@ defmodule EuruTrans.Transcripts do
   def talk(name) do
     {:ok, content} = File.read(Path.join('transcripts', name))
     id = String.replace(name, ".md", "")
-    %EuruTrans.Talk{speaker: "Franz", title: "Banane", text: content, id: id}
+    %EuruTrans.Talk{speaker: "Franz", title: "Banane", text: markdown(content), id: id}
   end
 
   def teaser(name) do
@@ -21,7 +21,11 @@ defmodule EuruTrans.Transcripts do
     text = String.slice(complete_talk.text, 0, 100) <> "..."
     %EuruTrans.Talk{speaker: complete_talk.speaker,
     title: complete_talk.title,
-    text: text,
+    text: markdown(text),
     id: complete_talk.id}
+  end
+
+  defp markdown(text) do
+    Earmark.to_html(text)
   end
 end
