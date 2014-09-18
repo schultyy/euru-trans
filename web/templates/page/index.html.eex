@@ -19,7 +19,7 @@
     <%= Enum.map @talks, fn talk -> %>
       <h2><a href="<%= link_to talk %>"><%=talk.title%></a></h2>
       <h2><%= talk.speaker%></h2>
-      <p><%= talk.text%></p>
+      <p><%= safe talk.text%></p>
     <% end %>
   </div>
 </div>
