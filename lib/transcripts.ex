@@ -1,19 +1,23 @@
 defmodule EuruTrans.Transcripts do
   def all do
-    all_files = Path.wildcard("transcripts/*.html")
-    Enum.map all_files -- [".git", ".gitignore"], &teaser/1
+    all_files = Path.wildcard("transcripts/*.md")
+    Enum.map all_files -- [".git", ".gitignore", "transcripts/README.md"], &teaser/1
   end
 
   def by_id(id) do
-    name = "#{id}.html"
-    {:ok, content} = File.read(Path.join('transcripts', name))
-    talk(name)
+    name = "#{id}.md"
+    abs_path = Path.join('transcripts', name)
+    talk(abs_path)
   end
 
-  def talk(name) do
-    {:ok, content} = File.read(Path.join('transcripts', name))
-    id = String.replace(name, ".html", "")
-    %EuruTrans.Talk{speaker: "Franz", title: "Banane", text: content, id: id}
+  def talk(filename) do
+    {frontmatter, content} = read_file(filename)
+    id = Path.basename(String.replace(filename, ".md", ""))
+    %EuruTrans.Talk{ speaker: frontmatter[:speaker], 
+                     title: frontmatter[:title], 
+                     text: markdown(content), 
+                     id: id
+                   }
   end
 
   def teaser(name) do
@@ -21,7 +25,17 @@ defmodule EuruTrans.Transcripts do
     text = String.slice(complete_talk.text, 0, 100) <> "..."
     %EuruTrans.Talk{speaker: complete_talk.speaker,
     title: complete_talk.title,
-    text: text,
+    text: markdown(text),
     id: complete_talk.id}
+  end
+
+  defp read_file(filename) do
+    { :ok, content } = File.read(filename)
+    { frontmatter, markdown } = EuruTrans.Sashimi.parse(content)
+    { EuruTrans.TupleToDict.convert(frontmatter), markdown }
+  end
+
+  defp markdown(text) do
+    Earmark.to_html(text)
   end
 end

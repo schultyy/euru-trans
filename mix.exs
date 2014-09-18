@@ -13,7 +13,7 @@ defmodule EuruTrans.Mixfile do
   def application do
     [
       mod: { EuruTrans, [] },
-      applications: [:phoenix, :cowboy, :logger]
+      applications: [:phoenix, :cowboy, :logger, :yamerl]
     ]
   end
 
@@ -25,7 +25,9 @@ defmodule EuruTrans.Mixfile do
   defp deps do
     [
       {:phoenix, "0.4.1"},
-      {:cowboy, "~> 1.0.0"}
+      {:cowboy, "~> 1.0.0"},
+      {:earmark, "0.1.8" },
+      {:yamerl, github: "yakaz/yamerl"}
     ]
   end
 end
