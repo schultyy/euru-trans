@@ -6,4 +6,4 @@ before_install:
 - git clone https://github.com/elixir-lang/elixir
 - cd elixir && git checkout stable && make && cd ..
 before_script: "export PATH=`pwd`/elixir/bin:$PATH"
-script: "MIX_ENV=test mix do local.hex, deps.get, compile, test -y"
+script: "yes | MIX_ENV=test mix do local.hex, deps.get, compile, test"
