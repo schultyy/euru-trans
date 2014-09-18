@@ -1,6 +1,6 @@
 defmodule EuruTrans.Transcripts do
   def all do
-    {:ok, all_files} = File.ls('transcripts')
+    all_files = Path.wildcard("transcripts/*.md")
     Enum.map all_files -- [".git", ".gitignore"], &teaser/1
   end
 

@@ -8,6 +8,10 @@ Website for eurucamp 2014 transcriptions
 - Elixir 1.0
 - [Phoenix](https://github.com/phoenixframework/phoenix)
 
+Eurucamp transcriptions checked out in `transcripts` folder. For now the
+transcriptions are not publicly available
+
+
 # Instructions
 To start your new Phoenix application you have to:
 
