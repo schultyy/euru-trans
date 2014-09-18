@@ -11,9 +11,9 @@ defmodule EuruTrans.Transcripts do
   end
 
   def talk(filename) do
-    content = read_file(filename)
+    {front_matter, content} = read_file(filename)
     id = Path.basename(String.replace(filename, ".md", ""))
-    %EuruTrans.Talk{speaker: "Franz", title: "Banane", text: markdown(content), id: id}
+    %EuruTrans.Talk{ speaker: "Franz", title: "Banane", text: markdown(content), id: id}
   end
 
   def teaser(name) do
@@ -26,9 +26,9 @@ defmodule EuruTrans.Transcripts do
   end
 
   defp read_file(filename) do
-    {:ok, content} = File.read(filename)
-    {frontmatter, markdown } = EuruTrans.Sashimi.parse(content)
-    markdown
+    { :ok, content } = File.read(filename)
+    { frontmatter, markdown } = EuruTrans.Sashimi.parse(content)
+    { EuruTrans.TupleToDict.convert(frontmatter), markdown }
   end
 
   defp markdown(text) do
