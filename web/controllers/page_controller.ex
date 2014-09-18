@@ -2,7 +2,7 @@ defmodule EuruTrans.PageController do
   use Phoenix.Controller
 
   def index(conn, _params) do
-    render conn, "index"
+    render conn, "index", talks: EuruTrans.Transcripts.all
   end
 
   def not_found(conn, _params) do
