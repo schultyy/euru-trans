@@ -1,7 +1,7 @@
 defmodule EuruTrans.Transcripts do
   def all do
     all_files = Path.wildcard("transcripts/*.md")
-    Enum.map all_files -- [".git", ".gitignore", "transcripts/README.md"], &teaser/1
+    Enum.map all_files -- [".git", ".gitignore", "transcripts/README.md"], &talk/1
   end
 
   def by_id(id) do
@@ -12,21 +12,16 @@ defmodule EuruTrans.Transcripts do
 
   def talk(filename) do
     {frontmatter, content} = read_file(filename)
+
     id = Path.basename(String.replace(filename, ".md", ""))
-    %EuruTrans.Talk{ speaker: frontmatter[:speaker], 
-                     title: frontmatter[:title], 
-                     text: markdown(content), 
+    teaser = Map.get(frontmatter, :teaser, "")
+
+    %EuruTrans.Talk{ speaker: frontmatter[:speaker],
+                     title: frontmatter[:title],
+                     text: markdown(content),
+                     teaser: teaser,
                      id: id
                    }
-  end
-
-  def teaser(name) do
-    complete_talk = talk(name)
-    text = String.slice(complete_talk.text, 0, 100) <> "..."
-    %EuruTrans.Talk{speaker: complete_talk.speaker,
-    title: complete_talk.title,
-    text: markdown(text),
-    id: complete_talk.id}
   end
 
   defp read_file(filename) do
