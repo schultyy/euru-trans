@@ -8,6 +8,12 @@ defmodule EuruTransSashimiTest do
     assert markdown == "#Heading"
   end
 
+  test "with longer frontmatter" do
+    example = "---\nfoo: bar\nbaz: yadda\n---\n#Heading"
+    { frontmatter, markdown } = EuruTrans.Sashimi.parse(example)
+    assert frontmatter == [{'foo', 'bar'}, {'baz', 'yadda'}]
+  end
+
   test "markdown without frontmatter" do
     example = "#Heading"
     {frontmatter, markdown} = EuruTrans.Sashimi.parse(example)

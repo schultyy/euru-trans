@@ -14,7 +14,15 @@ defmodule EuruTrans.Sashimi do
 
   defp convert([frontmatter|markdown]) do
     result = :yamerl_constr.string(frontmatter) |> List.flatten
-    {hd(result), clean(markdown)}
+    {clean_tuples(result), clean(markdown)}
+  end
+
+  defp clean_tuples(result) when length(result) == 1 do
+    hd(result)
+  end
+
+  defp clean_tuples(result) do
+    List.flatten(result)
   end
 
   defp clean(markdown) do
