@@ -7,12 +7,11 @@ defmodule EuruTrans.Transcripts do
   def by_id(id) do
     name = "#{id}.md"
     abs_path = Path.join('transcripts', name)
-    {:ok, content} = File.read(abs_path)
     talk(abs_path)
   end
 
   def talk(filename) do
-    {:ok, content} = File.read(filename)
+    content = read_file(filename)
     id = Path.basename(String.replace(filename, ".md", ""))
     %EuruTrans.Talk{speaker: "Franz", title: "Banane", text: markdown(content), id: id}
   end
@@ -24,6 +23,12 @@ defmodule EuruTrans.Transcripts do
     title: complete_talk.title,
     text: markdown(text),
     id: complete_talk.id}
+  end
+
+  defp read_file(filename) do
+    {:ok, content} = File.read(filename)
+    {frontmatter, markdown } = EuruTrans.Sashimi.parse(content)
+    markdown
   end
 
   defp markdown(text) do
