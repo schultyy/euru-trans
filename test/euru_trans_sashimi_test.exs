@@ -12,4 +12,11 @@ defmodule EuruTransSashimiTest do
     results = EuruTrans.Sashimi.convert_frontmatter(example)
     assert  {'foo', 'bar'} == hd(results)
   end
+
+  test "return frontmatter and markdown" do
+    example = "---\nfoo: bar\n---\n#Heading"
+    { frontmatter, markdown } = EuruTrans.Sashimi.parse(example)
+    assert hd(frontmatter) == {'foo', 'bar'}
+    assert markdown == "#Heading"
+  end
 end
