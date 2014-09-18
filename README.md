@@ -1,5 +1,6 @@
 # euru-trans
-
+[![Build
+Status](https://travis-ci.org/schultyy/euru-trans.svg?branch=master)](https://travis-ci.org/schultyy/euru-trans)
 Website for eurucamp 2014 transcriptions
 
 # Dependencies
