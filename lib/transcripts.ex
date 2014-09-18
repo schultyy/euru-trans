@@ -1,18 +1,18 @@
 defmodule EuruTrans.Transcripts do
   def all do
-    {:ok, all_files} = File.ls('transcripts')
+    all_files = Path.wildcard("transcripts/*.html")
     Enum.map all_files -- [".git", ".gitignore"], &teaser/1
   end
 
   def by_id(id) do
-    name = "#{id}.md"
+    name = "#{id}.html"
     {:ok, content} = File.read(Path.join('transcripts', name))
     talk(name)
   end
 
   def talk(name) do
     {:ok, content} = File.read(Path.join('transcripts', name))
-    id = String.replace(name, ".md", "")
+    id = String.replace(name, ".html", "")
     %EuruTrans.Talk{speaker: "Franz", title: "Banane", text: content, id: id}
   end
 
