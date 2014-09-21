@@ -1,39 +1,21 @@
 <br><br>
 
 <div class="row">
-  
-  <div class="small-2 columns">
-  </div>
-  <div class="small-10 columns">
-  	<h1>
-	Day 1
-	</h1>
+  <div class="small-12 columns">
+    <h1>
+      Day 1
+    </h1>
   </div>
 </div>
 
 <div class="row">
-  
-  <div class="small-2 columns">
-  </div>
-  <div class="small-10 columns">
+  <div class="small-12 columns">
     <%= Enum.map @talks, fn talk -> %>
-      <h2><a href="<%= link_to talk %>"><%=talk.title%></a></h2>
-      <h2><%= talk.speaker %></h2>
-      <p><%= talk.teaser %></p>
+      <div class="talk">
+        <h2><a href="<%= link_to talk %>"><%=talk.title%></a></h2>
+        <h2><%= talk.speaker %></h2>
+        <p><%= talk.teaser %></p>
+      </div>
     <% end %>
-  </div>
-</div>
-
-<br>
-
-<div class="row">
-  
-  <div class="small-2 columns">
-  </div>
-  <div class="small-10 columns">
-  	<h2><a href="/talk">Generic talk name here</a></h2>
-  	<h2>Generic speaker name here</h2>
-  	<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
-  	</p>
   </div>
 </div>
