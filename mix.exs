@@ -26,6 +26,9 @@ defmodule EuruTrans.Mixfile do
     [
       {:phoenix, "0.4.1"},
       {:cowboy, "~> 1.0.0"},
+      {:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.1.0"},
+      {:httpotion, "~> 0.2.0"},
+      { :json,   github: "schultyy/elixir-json"},
       {:earmark, "0.1.8" },
       {:yamerl, github: "yakaz/yamerl"}
     ]
