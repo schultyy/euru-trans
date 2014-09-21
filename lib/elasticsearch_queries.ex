@@ -6,7 +6,7 @@ defmodule EuruTrans.Elasticsearch.Queries do
   def ids(id_list) do
     [query: %{
         ids: %{
-          values: id_list
+          values: [id_list]
         }
       }]
   end
