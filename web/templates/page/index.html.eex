@@ -1,10 +1,7 @@
 <br><br>
 
 <div class="row">
-
-  <div class="small-2 columns">
-  </div>
-  <div class="small-10 columns">
+  <div class="small-12 columns">
     <h1>
       Day 1
     </h1>
@@ -12,10 +9,7 @@
 </div>
 
 <div class="row">
-
-  <div class="small-2 columns">
-  </div>
-  <div class="small-10 columns">
+  <div class="small-12 columns">
     <%= Enum.map @talks, fn talk -> %>
       <div class="talk">
         <h2><a href="<%= link_to talk %>"><%=talk.title%></a></h2>
