@@ -1,6 +1,16 @@
 <br><br>
 
 <div class="row">
+  <form>
+    <div class="row">
+      <div class="small-12 columns">
+        <input type="text" placeholder="Search..." id="search-field" />
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="row">
   <div class="small-12 columns">
     <h1>
       Day 1
@@ -8,14 +18,15 @@
   </div>
 </div>
 
+
 <div class="row">
   <div class="small-12 columns">
     <%= Enum.map @talks, fn talk -> %>
-      <div class="talk">
-        <h2><a href="<%= link_to talk %>"><%=talk.title%></a></h2>
-        <h2><%= talk.speaker %></h2>
-        <p><%= talk.teaser %></p>
-      </div>
+    <div class="talk">
+      <h2><a href="<%= link_to talk %>"><%=talk.title%></a></h2>
+      <h2><%= talk.speaker %></h2>
+      <p><%= talk.teaser %></p>
+    </div>
     <% end %>
   </div>
 </div>
