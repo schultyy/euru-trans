@@ -11,7 +11,6 @@ Website for eurucamp 2014 transcriptions
 Eurucamp transcriptions checked out in `transcripts` folder. For now the
 transcriptions are not publicly available
 
-
 # Instructions
 To start your new Phoenix application you have to:
 
@@ -20,6 +19,11 @@ To start your new Phoenix application you have to:
 
 Now you can visit `localhost:4000` from your browser.
 
+# Transcriptions
+
+Transcriptions are fetched from Elasticsearch.
+- Elasticsearch must be available under `http://localhost:9200`.
+- Transcriptions must be available in `transcripts` index.
 
 ## Notes
 
