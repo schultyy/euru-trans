@@ -13,7 +13,7 @@ defmodule EuruTrans.Mixfile do
   def application do
     [
       mod: { EuruTrans, [] },
-      applications: [:phoenix, :cowboy, :logger]
+      applications: [:phoenix, :cowboy, :logger, :yamerl]
     ]
   end
 
@@ -28,7 +28,9 @@ defmodule EuruTrans.Mixfile do
       {:cowboy, "~> 1.0.0"},
       {:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.1.0"},
       {:httpotion, "~> 0.2.0"},
-      { :json,   github: "schultyy/elixir-json"}
+      { :json,   github: "schultyy/elixir-json"},
+      {:earmark, "0.1.8" },
+      {:yamerl, github: "yakaz/yamerl"}
     ]
   end
 end
