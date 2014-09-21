@@ -16,7 +16,10 @@
     <br>
   </div>
   <div class="small-10 columns">
-    <p>VIDEO HERE</p>
-    <%= safe @talk.text%>
+    <div class="talk-text-border">
+      <div class="talk-text">
+        <%= safe @talk.text%>
+      </div>
+    </div>
   </div>
 </div>

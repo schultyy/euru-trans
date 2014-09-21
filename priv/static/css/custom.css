@@ -1,3 +1,7 @@
+body {
+  background-color: #F7F7F7;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #ff0080;
 }
@@ -29,3 +33,14 @@ a:visited {
   margin-bottom: 15px;
   padding-left: 15px;
 }
+
+.talk-text-border {
+  background-color: white;
+  padding: 15px;
+}
+
+.talk-text {
+  background-color: #e7eee4;
+  padding: 10px;
+}
+
