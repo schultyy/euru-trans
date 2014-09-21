@@ -10,4 +10,12 @@ defmodule EuruTrans.Elasticsearch.Queries do
         }
       }]
   end
+
+  def match(property, value) do
+    match_list = Map.put_new(Map.new, property, value)
+    [query: %{
+        match: match_list
+      }
+    ]
+  end
 end

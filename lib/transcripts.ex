@@ -6,6 +6,13 @@ defmodule EuruTrans.Transcripts do
     |> parse
   end
 
+  def find(search_string) do
+    EuruTrans.Elasticsearch.start
+    {:ok, match} = EuruTrans.Elasticsearch.Queries.match("title", search_string) |> JSON.encode
+    EuruTrans.Elasticsearch.post('http://localhost:9200/transcripts/_search', match).body
+    |> parse
+  end
+
   def parse(args) do
     Enum.map args, &talk/1
   end

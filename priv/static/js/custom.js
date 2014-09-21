@@ -1,5 +1,6 @@
-function load(callback) {
-  $.post("/search", function(data) {
+function load(searchString, callback) {
+  $.post("/search", {searchString: searchString}, function(data) {
+    $('#talks').empty();
     var talks = data.map(callback);
     $('#talks').append(talks);
   });
@@ -21,5 +22,10 @@ function createTalk(transcript) {
 }
 
 $(document).ready(function() {
-  load(createTalk);
+  load("", createTalk);
+
+  $('#search-field').keydown(function(){
+    var text = $('#search-field').val();
+    load(text, createTalk);
+  });
 });

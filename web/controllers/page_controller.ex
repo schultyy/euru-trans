@@ -6,9 +6,12 @@ defmodule EuruTrans.PageController do
   end
 
   def search(conn, params) do
-    result = case params do
-    %{} ->
-      JSON.encode!(EuruTrans.Transcripts.all)
+    search_string = params["searchString"]
+    result = cond do
+      String.length(search_string) == 0 ->
+        JSON.encode!(EuruTrans.Transcripts.all)
+      true ->
+        JSON.encode!(EuruTrans.Transcripts.find(search_string))
     end
     json conn, result
   end

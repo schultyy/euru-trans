@@ -10,4 +10,9 @@ defmodule EuruTrans.ElasticsearchQueryTest do
     {:ok, ids} = JSON.encode(EuruTrans.Elasticsearch.Queries.ids(2))
     assert ids == "{\"query\":{\"ids\":{\"values\":[2]}}}"
   end
+
+  test "match" do
+    {:ok, match} = JSON.encode(EuruTrans.Elasticsearch.Queries.match("foo", "bar"))
+    assert match == "{\"query\":{\"match\":{\"foo\":\"bar\"}}}"
+  end
 end
