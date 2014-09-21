@@ -1,33 +1,31 @@
 defmodule EuruTrans.Transcripts do
   def all do
-    all_files = Path.wildcard("transcripts/*.md")
-    Enum.map all_files -- [".git", ".gitignore", "transcripts/README.md"], &talk/1
+    EuruTrans.Elasticsearch.start
+    {:ok, match_all} = EuruTrans.Elasticsearch.Queries.match_all |> JSON.encode
+    EuruTrans.Elasticsearch.post('http://localhost:9200/transcripts/_search', match_all).body
+    |> parse
+  end
+
+  def parse(args) do
+    Enum.map args, &talk/1
   end
 
   def by_id(id) do
-    name = "#{id}.md"
-    abs_path = Path.join('transcripts', name)
-    talk(abs_path)
+    {:ok, id_query} = EuruTrans.Elasticsearch.Queries.ids([id]) |> JSON.encode
+    EuruTrans.Elasticsearch.start
+    EuruTrans.Elasticsearch.post('http://localhost:9200/transcripts/_search', id_query).body
+    |> parse
+    |> hd
   end
 
-  def talk(filename) do
-    {frontmatter, content} = read_file(filename)
-
-    id = Path.basename(String.replace(filename, ".md", ""))
-    teaser = Map.get(frontmatter, :teaser, "")
-
-    %EuruTrans.Talk{ speaker: frontmatter[:speaker],
-                     title: frontmatter[:title],
-                     text: markdown(content),
-                     teaser: teaser,
-                     id: id
-                   }
-  end
-
-  defp read_file(filename) do
-    { :ok, content } = File.read(filename)
-    { frontmatter, markdown } = EuruTrans.Sashimi.parse(content)
-    { EuruTrans.TupleToDict.convert(frontmatter), markdown }
+  defp talk(result) do
+    source = result["_source"]
+    %EuruTrans.Talk{ speaker: source["speaker"],
+      title: source["title"],
+      text: markdown(source["text"]),
+      teaser: source["teaser"],
+      id: result["_id"]
+    }
   end
 
   defp markdown(text) do
