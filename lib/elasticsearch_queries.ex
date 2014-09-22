@@ -18,4 +18,12 @@ defmodule EuruTrans.Elasticsearch.Queries do
       }
     ]
   end
+
+  def prefix(property, value) do
+    prefix_list = Map.put_new(Map.new, property, value)
+    [query: %{
+        prefix: prefix_list
+      }
+    ]
+  end
 end

@@ -15,4 +15,9 @@ defmodule EuruTrans.ElasticsearchQueryTest do
     {:ok, match} = JSON.encode(EuruTrans.Elasticsearch.Queries.match("foo", "bar"))
     assert match == "{\"query\":{\"match\":{\"foo\":\"bar\"}}}"
   end
+
+  test "prefix" do
+    {:ok, prefix} = JSON.encode(EuruTrans.Elasticsearch.Queries.prefix("foo", "bar"))
+    assert prefix == "{\"query\":{\"prefix\":{\"foo\":\"bar\"}}}"
+  end
 end

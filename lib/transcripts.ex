@@ -8,8 +8,8 @@ defmodule EuruTrans.Transcripts do
 
   def find(search_string) do
     EuruTrans.Elasticsearch.start
-    {:ok, match} = EuruTrans.Elasticsearch.Queries.match("title", search_string) |> JSON.encode
-    EuruTrans.Elasticsearch.post('http://localhost:9200/transcripts/_search', match).body
+    {:ok, prefix} = EuruTrans.Elasticsearch.Queries.prefix("title", search_string) |> JSON.encode
+    EuruTrans.Elasticsearch.post('http://localhost:9200/transcripts/_search', prefix).body
     |> parse
   end
 
