@@ -25,6 +25,13 @@ Transcriptions are fetched from Elasticsearch.
 - Elasticsearch must be available under `http://localhost:9200`.
 - Transcriptions must be available in `transcripts` index.
 
+Transcript format:
+- `title`
+- `text`
+- `teaser`
+- `id`
+- `speaker`
+
 ## Notes
 
 * If you choose to change the application's structure, you could manually start the router from your code like this `EuruTrans.Router.start`
