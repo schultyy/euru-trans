@@ -2,14 +2,14 @@ defmodule EuruTrans.Transcripts do
   def all do
     EuruTrans.Elasticsearch.start
     {:ok, match_all} = EuruTrans.Elasticsearch.Queries.match_all |> JSON.encode
-    EuruTrans.Elasticsearch.post('http://localhost:9200/transcripts/_search', match_all).body
+    EuruTrans.Elasticsearch.query(match_all).body
     |> parse
   end
 
   def find(search_string) do
     EuruTrans.Elasticsearch.start
     {:ok, prefix} = EuruTrans.Elasticsearch.Queries.prefix("title", search_string) |> JSON.encode
-    EuruTrans.Elasticsearch.post('http://localhost:9200/transcripts/_search', prefix).body
+    EuruTrans.Elasticsearch.query(prefix).body
     |> parse
   end
 
@@ -20,7 +20,7 @@ defmodule EuruTrans.Transcripts do
   def by_id(id) do
     {:ok, id_query} = EuruTrans.Elasticsearch.Queries.ids([id]) |> JSON.encode
     EuruTrans.Elasticsearch.start
-    EuruTrans.Elasticsearch.post('http://localhost:9200/transcripts/_search', id_query).body
+    EuruTrans.Elasticsearch.query(id_query).body
     |> parse
     |> hd
   end
