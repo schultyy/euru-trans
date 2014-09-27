@@ -16,7 +16,7 @@
     <nav class="top-bar" data-topbar role="navigation">
       <ul.no-bullet class="title area">
         <li>
-        <h3><span><a href="/"><img src="http://livingstyleguide.com/eurucamp/images/eurucamp-2014.svg" width="200"></span></a><span>Transcriptions</span></h3>
+        <h3><span><a href="/"><img src="/images/eurucamp-2014.svg" width="200"></span></a><span>Transcriptions</span></h3>
         </li>
       </ul>
     </nav>
