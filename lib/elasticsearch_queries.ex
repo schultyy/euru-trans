@@ -26,4 +26,13 @@ defmodule EuruTrans.Elasticsearch.Queries do
       }
     ]
   end
+
+  def multi_match(properties, value) do
+    [query: %{
+        multi_match: %{
+        fields: properties,
+        query: value
+      }
+    }]
+  end
 end
