@@ -1,4 +1,6 @@
 function load(searchString, callback) {
+  $('#talks').empty();
+  $('#talks').append($("<img>").attr('src', '/images/ajax-loader.gif'));
   $.post("/search", {searchString: searchString}, function(data) {
     $('#talks').empty();
     var talks = data.map(callback);
