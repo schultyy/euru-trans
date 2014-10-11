@@ -13,7 +13,7 @@ defmodule EuruTrans.Transcripts do
 
   def find(search_string) do
     EuruTrans.Elasticsearch.start
-    {:ok, prefix} = EuruTrans.Elasticsearch.Queries.multi_match(["title", "speaker", "text"], search_string) |> JSON.encode
+    {:ok, prefix} = EuruTrans.Elasticsearch.Queries.multi_match(["title", "speaker", "text"], String.downcase(search_string)) |> JSON.encode
     EuruTrans.Elasticsearch.query(prefix).body
     |> parse
   end
