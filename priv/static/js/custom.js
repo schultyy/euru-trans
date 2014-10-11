@@ -26,8 +26,9 @@ function createTalk(transcript) {
 $(document).ready(function() {
   load("", createTalk);
 
-  $('#search-field').keydown(function(){
+  $('#search-form').submit(function(e){
     var text = $('#search-field').val();
     load(text, createTalk);
+    e.preventDefault();
   });
 });

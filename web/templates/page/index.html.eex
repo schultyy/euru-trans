@@ -1,10 +1,13 @@
 <br><br>
 
 <div class="row">
-  <form>
+  <form action="POST" id="search-form">
     <div class="row">
-      <div class="small-12 columns">
+      <div class="small-10 columns">
         <input type="text" placeholder="Search..." id="search-field" />
+      </div>
+      <div class="small-2 columns">
+        <input type="submit" id='submit-button' value="Search" />
       </div>
     </div>
   </form>

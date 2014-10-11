@@ -48,4 +48,20 @@ a:visited {
   width: 100%;
   padding-left: 15px;
   font-size: 16px;
+  margin-top: 5px;
 }
+
+#submit-button {
+  font-weight: bold;
+  outline: medium none;
+  color: white;
+  border: 1px solid #ff0080;
+  display: inline-block;
+  line-height: 20px;
+  padding: 0px 12px;
+  border-radius: 2px;
+  background-color: #ff0080;
+  /*background: -moz-linear-gradient(center top , #4387FD, #4683EA)
+                repeat scroll 0% 0% transparent;*/
+}
+
