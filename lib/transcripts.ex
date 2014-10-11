@@ -41,6 +41,6 @@ defmodule EuruTrans.Transcripts do
   end
 
   defp markdown(text) do
-    Earmark.to_html(text)
+    Earmark.to_html(text, %Earmark.Options{ gfm: true, breaks: true})
   end
 end
