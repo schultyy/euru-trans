@@ -1,9 +1,14 @@
 defmodule EuruTrans.Transcripts do
   def all do
-    EuruTrans.Elasticsearch.start
-    {:ok, match_all} = EuruTrans.Elasticsearch.Queries.match_all |> JSON.encode
-    EuruTrans.Elasticsearch.query(match_all).body
-    |> parse
+    try do
+      EuruTrans.Elasticsearch.start
+      {:ok, match_all} = EuruTrans.Elasticsearch.Queries.match_all |> JSON.encode
+      EuruTrans.Elasticsearch.query(match_all).body
+      |> parse
+    rescue e in HTTPotion.HTTPError -> e
+      IO.puts "ERROR WHILE CONNECTING TO ELASTICSEARCH: #{e.message}"
+      []
+    end
   end
 
   def find(search_string) do
