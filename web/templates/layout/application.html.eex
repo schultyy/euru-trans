@@ -10,6 +10,7 @@
     <title>eurucamp 2014 transcriptions</title>
     <link rel="stylesheet" href="/css/foundation.css">
     <link rel="stylesheet" href="/css/custom.css">
+    <script type="text/javascript" src="/js/jquery/dist/jquery.min.js"></script>
   </head>
 
   <body>
@@ -45,8 +46,6 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="/js/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/custom.js"></script>
   <!-- /container -->
 </body>
 </html>
