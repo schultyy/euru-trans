@@ -1,0 +1,9 @@
+{
+  "name": "euru-trans",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "backbone": "jashkenas/backbone",
+    "jquery": "jquery/jquery"
+  }
+}
